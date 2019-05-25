@@ -49,7 +49,7 @@ struct KdTree
 		}
 		else
 		{
-			int cd = depth % 2;
+			int cd = depth % 3;  // 3 dim kd-tree
 
 			if (cd == 0) 
 			{
@@ -86,7 +86,7 @@ struct KdTree
 				if (distance <= distanceTol) 
 					ids.push_back(node->id);
 			}
-			if (depth % 2 == 0) 
+			if (depth % 3 == 0) // 3 dim kd-tree
 			{
 				if ((pivot.x - distanceTol) < node->point.x) 
 					searchHelper(pivot, node->left, depth + 1, distanceTol, ids);
